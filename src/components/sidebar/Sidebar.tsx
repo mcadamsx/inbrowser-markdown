@@ -15,7 +15,6 @@ export default function Sidebar(props: SidebarProps): ReactElement{
       </div>
       <div className="my-7">
         <span className="text-neutral-600 font-medium uppercase text-sm tracking-widest">my documents</span>
-       
       </div>
       <ThemeToggle />
     </aside>
