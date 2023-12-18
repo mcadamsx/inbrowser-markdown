@@ -1,18 +1,19 @@
 import { useEffect } from "react";
-import Navbar from "./components/header/Navbar";
-import Sidebar from "./components/sidebar/Sidebar";
 import data from "../src/assets/data.json";
+import Navbar from "./components/Navbar/Navbar";
+import Sidebar from "./components/Sidebar/Sidebar";
+import Editor from "./components/Editor/Editor";
 
 function App() {
-
   return (
-    
-    <div className="">
-      <Sidebar/>
-     <div className="">
-       <Navbar/>
-     </div>
-    
+    <div>
+      {/* <Sidebar/> */}
+      <div>
+        <Navbar />
+        <main>
+          <Editor/>
+        </main>
+      </div>
     </div>
   );
 }
