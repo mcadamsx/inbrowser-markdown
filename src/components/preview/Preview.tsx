@@ -1,19 +1,17 @@
-// Components/Preview.tsx
+// src/components/Preview.tsx
 import React from 'react';
-import marked from 'marked';
+import ReactMarkdown from 'react-markdown';
 
 interface PreviewProps {
   markdownContent: string;
-  isDarkMode: boolean;
 }
 
-const Preview: React.FC<PreviewProps> = ({ markdownContent, isDarkMode }) => {
+const Preview: React.FC<PreviewProps> = ({ markdownContent }) => {
   return (
-    <div className={`w-1/2 p-4 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-200'}`}>
-      <div
-        dangerouslySetInnerHTML={{ __html: marked(markdownContent) }}
-        className={`text-${isDarkMode ? 'white' : 'black'}`}
-      />
+    <div >
+      <ReactMarkdown
+       className={`overflow-y-auto p-6 bg-white dark:bg-neutral-100 w-full`}
+      >{markdownContent}</ReactMarkdown>
     </div>
   );
 };

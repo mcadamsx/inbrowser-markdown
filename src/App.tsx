@@ -1,21 +1,41 @@
-import { useEffect } from "react";
-import data from "../src/assets/data.json";
-import Navbar from "./components/Navbar/Navbar";
-import Sidebar from "./components/Sidebar/Sidebar";
-import Editor from "./components/Editor/Editor";
+// src/App.tsx
+import React, { useState } from 'react';
+import Navbar from './components/Navbar/Navbar';
+import Sidebar from './components/Sidebar/Sidebar';
+import Editor from './components/Editor/Editor';
+import Preview from './components/preview/Preview';
 
-function App() {
+const App: React.FC = () => {
+  const [showEditor, setShowEditor] = useState(true);
+  const [markdownContent, setMarkdownContent] = useState<string>('');
+
+  const toggleEditorPreview = () => {
+    setShowEditor(!showEditor);
+  };
+
   return (
-    <div>
-      {/* <Sidebar/> */}
-      <div>
-        <Navbar />
-        <main>
-          <Editor/>
-        </main>
+    <div className="flex flex-col h-screen">
+      <Navbar />
+      <div className="flex flex-1">
+        {/* <Sidebar /> */}
+        <div className="flex flex-row">
+          {showEditor ? (
+            <Editor markdownContent={markdownContent} setMarkdownContent={setMarkdownContent} />
+          ) : (
+            <Preview markdownContent={markdownContent} />
+          )}
+          <div className="mt-2">
+            <button
+              className="bg-blue-500 text-white px-2 py-1 rounded"
+              onClick={toggleEditorPreview}
+            >
+              {showEditor ? 'Preview' : 'Edit'}
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
-}
+};
 
 export default App;
