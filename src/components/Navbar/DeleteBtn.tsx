@@ -11,10 +11,16 @@ const DeleteDocumentButton: React.FC = () => {
   };
 
   const handleConfirmDelete = () => {
-    // Delete from local storage
-    localStorage.removeItem('markdownDocument');
-    // You can also update a list of documents in local storage if needed
+    const title = localStorage.getItem('currentDocumentTitle');
+    const savedDocuments = JSON.parse(localStorage.getItem('markdownDocumentList') || '[]');
 
+    // Remove the document with the matching title from the list
+    const updatedDocuments = savedDocuments.filter((document: any) => document.title !== title);
+    localStorage.setItem('markdownDocumentList', JSON.stringify(updatedDocuments));
+
+    // Clear the content of the current document
+    localStorage.removeItem('currentDocumentContent');
+    
     alert('Document deleted!');
     setIsDeleteModalOpen(false);
   };
@@ -26,7 +32,7 @@ const DeleteDocumentButton: React.FC = () => {
   return (
     <>
       <button className='ml-auto ' onClick={handleDelete}>
-      <img src={DeleteIcon} aria-hidden={true} alt="" />
+        <img src={DeleteIcon} aria-hidden={true} alt="" />
         <span className="sr-only">delete markdown document</span>
       </button>
       <DeletePromptModal
@@ -37,6 +43,4 @@ const DeleteDocumentButton: React.FC = () => {
     </>
   );
 };
-
 export default DeleteDocumentButton;
-

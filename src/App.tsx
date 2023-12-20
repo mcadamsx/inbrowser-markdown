@@ -4,33 +4,20 @@ import Navbar from './components/Navbar/Navbar';
 import Sidebar from './components/Sidebar/Sidebar';
 import Editor from './components/Editor/Editor';
 import Preview from './components/preview/Preview';
-
 const App: React.FC = () => {
-  const [showEditor, setShowEditor] = useState(true);
   const [markdownContent, setMarkdownContent] = useState<string>('');
-
-  const toggleEditorPreview = () => {
-    setShowEditor(!showEditor);
-  };
 
   return (
     <div className="flex flex-col h-screen">
       <Navbar />
       <div className="flex flex-1">
         {/* <Sidebar /> */}
-        <div className="flex flex-row">
-          {showEditor ? (
+        <div className="flex-1  overflow-hidden flex">
+          <div className="flex-1  bg-gray-100">
             <Editor markdownContent={markdownContent} setMarkdownContent={setMarkdownContent} />
-          ) : (
+          </div>
+          <div className="flex-1 bg-gray-100 overflow-auto">
             <Preview markdownContent={markdownContent} />
-          )}
-          <div className="mt-2">
-            <button
-              className="bg-blue-500 text-white px-2 py-1 rounded"
-              onClick={toggleEditorPreview}
-            >
-              {showEditor ? 'Preview' : 'Edit'}
-            </button>
           </div>
         </div>
       </div>

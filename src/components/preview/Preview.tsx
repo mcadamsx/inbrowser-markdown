@@ -10,7 +10,7 @@ const Preview: React.FC<PreviewProps> = ({ markdownContent }) => {
   return (
     <div >
       <ReactMarkdown
-       className={`overflow-y-auto p-6 bg-white dark:bg-neutral-100 w-full`}
+       className={`overflow-y-auto p-6 bg-white dark:bg-neutral-100 w-full $ preview-markdown `}
       >{markdownContent}</ReactMarkdown>
     </div>
   );

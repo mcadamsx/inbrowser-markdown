@@ -28,8 +28,6 @@ const DocumentTitle: React.FC = () => {
 
                 </div>
             </div>
-
-
         </>
 
 

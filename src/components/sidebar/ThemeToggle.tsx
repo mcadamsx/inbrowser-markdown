@@ -7,7 +7,6 @@ export default function ThemeToggle(): ReactElement {
     setIsDark((prev) => !prev);
     document.getElementsByTagName("body")[0].classList.toggle("dark");
   }
-  
 
   return (
     <div className="absolute bottom-6 flex items-center gap-x-3">

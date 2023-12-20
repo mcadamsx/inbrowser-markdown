@@ -12,9 +12,9 @@ const Editor: React.FC<EditorProps> = ({ markdownContent, setMarkdownContent }) 
   };
 
   return (
-    <div className="flex-1 p-4">
+    <div>
       <textarea
-        className="w-full h-full p-2 border rounded focus:outline-none"
+         className="w-full bg-white dark:bg-neutral-100 dark:text-neutral-700 p-4 font-mono text-sm border-x-2 "
         placeholder="Type your Markdown here..."
         value={markdownContent}
         onChange={handleEditorChange}
