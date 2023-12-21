@@ -7,10 +7,9 @@ const SaveDocumentButton: React.FC = () => {
     const title = localStorage.getItem('currentDocumentTitle');
     const savedDocuments = JSON.parse(localStorage.getItem('markdownDocumentList') || '[]');
 
-    // Get the current document content from the editor
+
     const documentContent = localStorage.getItem('currentDocumentContent') || '';
 
-    // Check if the document with the same title already exists
     const existingDocument = savedDocuments.find((document: any) => document.title === title);
 
     if (existingDocument) {
