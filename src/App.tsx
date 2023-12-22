@@ -1,28 +1,47 @@
-// src/App.tsx
-import React, { useState } from 'react';
-import Navbar from './components/Navbar/Navbar';
-import Sidebar from './components/Sidebar/Sidebar';
-import Editor from './components/Editor/Editor';
-import Preview from './components/preview/Preview';
-const App: React.FC = () => {
-  const [markdownContent, setMarkdownContent] = useState<string>('');
+import "react-toastify/dist/ReactToastify.css";
+
+import { ToastContainer } from "react-toastify";
+
+import Header from "./components/header/Header";
+import MarkdownEditor from "./components/MarkdownEditor";
+import Preview from "./components/Preview";
+import Sidebar from "./components/sidebar/Sidebar";
+import useDocumentStore from "./lib/documentStore";
+
+function App() {
+  const displayPreviewOnly = useDocumentStore(
+    (state) => state.displayPreviewOnly,
+  );
 
   return (
-    <div className="flex flex-col h-screen">
-      <Navbar />
-      <div className="flex flex-1">
-        {/* <Sidebar /> */}
-        <div className="flex-1  overflow-hidden flex">
-          <div className="flex-1  bg-gray-100">
-            <Editor markdownContent={markdownContent} setMarkdownContent={setMarkdownContent} />
-          </div>
-          <div className="flex-1 bg-gray-100 overflow-auto">
-            <Preview markdownContent={markdownContent} />
-          </div>
-        </div>
+    <div className="wrapper grid transition-all">
+      <Sidebar />
+      <div>
+        <Header />
+        <main
+          className={`grid h-screen w-full ${
+            displayPreviewOnly ? "grid-cols-1" : "md:grid-cols-2"
+          }`}
+        >
+          <MarkdownEditor />
+          <Preview />
+        </main>
       </div>
+
+      <ToastContainer
+        position="bottom-right"
+        autoClose={3000}
+        hideProgressBar
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        bodyClassName="toastBody"
+      />
     </div>
   );
-};
+}
 
 export default App;

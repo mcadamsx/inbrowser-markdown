@@ -1,55 +1,43 @@
-# [Browser markdown editor](https://jolly-croissant-507415.netlify.app/)
-
-## [Designed by Frontend Mentor](https://www.frontendmentor.io/challenges/inbrowser-markdown-editor-r16TrrQX9/hub)
-
-## Table of contents
+# Table of contents
 
 - [Overview](#overview)
-- [Website](#website)  
-- [Built with](#built-with)  
-- [What I learned](#what-i-learned)
-- [Install process](#install-process)
-- [Build process](#build-process)
-  
-## Overview   
+  - [The challenge](#the-challenge)
+  - [Built with](#built-with)
+  - [Links](#links)
+  - [Screenshot](#screenshot)
 
-Recently, I’ve been reading Vitest and testing library docs. I made this project to start writing UI tests. I also added toast alerts and docs saving in localStorage.
+## Overview
 
-## Website
+### The challenge
 
-[App live demo](https://jolly-croissant-507415.netlify.app/)
+Users should be able to:
 
-## Built with
+- Create, Read, Update, and Delete markdown documents ✅
+- Name and save documents to be accessed as needed ✅
+- Edit the markdown of a document and see the formatted preview of the content ✅
+- View a full-page preview of the formatted content ✅
+- View the optimal layout for the app depending on their device's screen size ✅
+- See hover states for all interactive elements on the page ✅
+- **Bonus**: If you're building a purely front-end project, use localStorage to save the current state in the browser that persists when the browser is refreshed ✅
 
- - [TailwindCSS](https://tailwindcss.com/)
- - [React](https://reactjs.org/)
- - [Vite](https://vitejs.dev/)
- - [Vitest](https://vitest.dev/)
- - [Testing Library](https://testing-library.com/)
- - [TypeScript](https://www.typescriptlang.org/)
- - [Redux Toolkit](https://redux-toolkit.js.org/)
- - [React Hot Toast](https://react-hot-toast.com/)
- - [localStorage Web APIs](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
- - [React Markdown](https://github.com/remarkjs/react-markdown)
- 
-## What I learned 
-- Vitest and Testing Library configuration and setup 
-- testing UI rendering and user interactions
-- mockup functions
-- using React Markdown
-- writing Redux Toolkit thunks
-- creating dark theme with TailwindCSS
+### Built with
 
- 
-## Install process
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [Zustand](https://github.com/pmndrs/zustand)
+- [React-toastify](https://fkhadra.github.io/react-toastify/)
+- [React-markdown](https://github.com/remarkjs/react-markdown)
+-
 
-1. install [Node.js](https://nodejs.org/en/download/)
-2. navigate to project folder in command line
-3. run `npm install`
-4. run `npm run dev`
+### Links
 
+- Live Site URL: [https://in-browser-markdown-editor-gray.vercel.app/](https://in-browser-markdown-editor-gray.vercel.app/)
+- Solution URL: [https://www.frontendmentor.io/solutions/inbrowser-markdown-editor-react-typescript-tailwindcss-iRIyCS0DEf](https://www.frontendmentor.io/solutions/inbrowser-markdown-editor-react-typescript-tailwindcss-iRIyCS0DEf)
 
-## Build process
+### Screenshot
 
-1. open project folder in command line
-2. run `npm run build`
+![home-desktop](./screenshots/home.png)
+
+![sidebar-desktop](./screenshots/sidebar.png)

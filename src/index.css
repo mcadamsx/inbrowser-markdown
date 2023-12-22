@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 @layer base {
-  /* body,
+  body,
   #root {
     @apply overflow-hidden;
     height: 100vh;
     position: fixed;
-  }  */
+  }
 
   body.dark {
-    @apply bg-neutral-100;
+    @apply bg-neutral-1000;
   }
 
   .wrapper {
@@ -24,7 +24,7 @@
     @apply transition-opacity;
   }
 
-  .menu-closed .wrapper .sidebar {
+  .sidebar-closed .wrapper .sidebar {
     @apply invisible;
     @apply opacity-0;
     @apply w-0;
@@ -33,59 +33,20 @@
     @apply m-0;
   }
 
-  .menu-closed .wrapper {
+  .sidebar-closed .wrapper {
     grid-template-columns: 0px 100vw;
-  }
-
-  .preview-open .preview {
-    @apply block;
-  }
-
-  .preview-closed .preview {
-    @apply hidden;
-  }
-
-  .preview {
-    height: calc(100vh - 72px);
-  }
-
-  .preview-markdown {
-    height: calc(100vh - 123px);
-  }
-
-  .preview-closed .markdown textarea {
-    @apply block;
-    min-height: calc(100vh - 123px);
-  }
-
-  .preview-open .markdown {
-    @apply hidden;
-  }
-
-  @media (min-width: 768px) {
-    .preview-closed .editor {
-      @apply grid;
-      @apply grid-cols-2;
-    }
-
-    .preview-closed .preview {
-      @apply block;
-      max-height: calc(100vh - 65px);
-      @apply border-l;
-      @apply border-neutral-800;
-    }
   }
 
   :is(h1, h2, h3, h4, h5, h6) {
     @apply font-serif;
   }
 
-  .dark :is(h1, h2, h3, h4, h5) {
-    @apply text-white;
-  }
-
   :is(h1, h3, h4, h5, h6) {
     @apply font-bold;
+  }
+
+  .dark :is(h1, h2, h3, h4, h5) {
+    @apply text-neutral-100;
   }
 
   h1 {
@@ -111,51 +72,68 @@
 
   h6 {
     @apply text-sm;
-    @apply text-primary-100;
+    @apply text-orange;
+  }
+
+  .sidebar {
+    @apply visible;
+    @apply opacity-100;
+    @apply transition-opacity;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+
+  ::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-neutral-400;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-neutral-500;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-neutral-600;
+  }
+
+  .dark ::-webkit-scrollbar-track {
+    @apply bg-neutral-700;
+  }
+  .dark ::-webkit-scrollbar-thumb {
+    @apply bg-neutral-400;
+  }
+
+  .dark ::-webkit-scrollbar-thumb:hover {
+    @apply bg-neutral-300;
   }
 }
 
 @layer components {
-  .primary-btn {
-    @apply border-none;
-    @apply bg-primary-100;
-    @apply font-sans;
-    @apply text-white;
-    @apply p-3;
-    @apply flex;
-    @apply justify-center;
-    @apply items-center;
-    @apply transition-colors;
-  }
-
-  .primary-btn:hover,
-  .primary-btn:active {
-    @apply bg-primary-200;
-    @apply transition-colors;
-  }
-
-  .primary-btn:disabled {
-    @apply bg-neutral-500;
-  }
-
-  .primary-btn > span {
-    @apply ml-1;
-    @apply text-white;
-  }
-
   .preview-markdown > * + * {
     @apply mt-6;
   }
 
   .preview-markdown :is(p, li) {
-    @apply text-neutral-600;
+    @apply text-neutral-500;
     @apply text-sm;
     @apply font-serif;
     @apply font-normal;
-  }
-
-  .preview-markdown :is(p, li) {
-    @apply text-neutral-700;
   }
 
   .preview-markdown :is(ol, ul) {
@@ -171,39 +149,39 @@
   }
 
   .preview-markdown ul li::marker {
-    @apply text-primary-100;
+    @apply text-orange;
   }
 
   .preview-markdown code {
-    @apply text-neutral-400;
+    @apply text-neutral-700;
     @apply font-mono;
     @apply text-sm;
     @apply whitespace-pre-wrap;
   }
 
   .dark .preview-markdown code {
-    @apply text-white;
+    @apply text-neutral-100;
   }
 
   .preview-markdown blockquote {
-    @apply bg-neutral-900;
+    @apply bg-neutral-200;
     @apply p-6;
     @apply border-l-4;
-    @apply border-primary-100;
+    @apply border-orange;
     @apply rounded-sm;
   }
 
   .dark .preview-markdown blockquote {
-    @apply bg-neutral-300;
+    @apply bg-neutral-800;
   }
 
   .preview-markdown blockquote p {
-    @apply text-neutral-100;
+    @apply text-neutral-700;
     @apply font-bold;
   }
 
   .dark .preview-markdown blockquote p {
-    @apply text-white;
+    @apply text-neutral-100;
   }
 
   .preview-markdown a {
@@ -212,13 +190,31 @@
   }
 
   .preview-markdown pre {
-    @apply bg-neutral-900;
+    @apply bg-neutral-200;
     @apply p-6;
   }
 
   .dark .preview-markdown pre {
-    @apply bg-neutral-300;
+    @apply bg-neutral-800;
+  }
+
+  .primary-btn {
+    @apply bg-orange;
+    @apply font-sans;
+    @apply text-neutral-100;
+    @apply p-3;
+    @apply flex;
+    @apply justify-center;
+    @apply items-center;
+    @apply transition-colors;
+    @apply rounded-md;
+  }
+
+  .primary-btn:hover {
+    @apply bg-orangeHover;
   }
 }
 
-/* Your existing styles... */
+.toastBody {
+  font-family: "Roboto", sans-serif;
+}
