@@ -65,9 +65,7 @@ const useDocumentStore = create<DocumentStore>()(
             const blob = new Blob([currentDocument.content], {
               type: "text/plain",
             });
-
             const url = URL.createObjectURL(blob);
-
             const a = document.createElement("a");
             a.href = url;
             a.download = currentDocument.name;
@@ -79,7 +77,6 @@ const useDocumentStore = create<DocumentStore>()(
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
           }
-
           return { ...state };
         });
       },

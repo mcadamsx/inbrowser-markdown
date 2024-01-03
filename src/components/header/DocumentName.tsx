@@ -20,6 +20,7 @@ export default function DocumentName(): JSX.Element {
     );
     if (updatedDocument) {
       setDocumentName(updatedDocument.name);
+
     }
   }, [documents, currentDocumentId]);
 
